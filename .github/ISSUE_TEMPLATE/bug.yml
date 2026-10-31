@@ -1,0 +1,48 @@
+name: Bug report
+description: Something in the spec or the implementation is wrong.
+labels: ["kind/bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! For **security issues**, do not open a public issue;
+        follow [SECURITY.md](../blob/main/SECURITY.md) instead.
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where is the bug?
+      options:
+        - Specification (docs/protocol.md, clock-sync.md, media-clock.md)
+        - lmp-core
+        - lmp-server
+        - lmp-client
+        - lmp-conformance
+        - lmp-cli
+        - CI / tooling
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Describe the observed behaviour. Include spec section numbers where relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps, a failing test, or a byte sequence (hex) that triggers the bug.
+      render: text
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      description: Commit hash, OS, `rustc --version`.
+      render: text

@@ -1,0 +1,47 @@
+name: Feature / protocol change request
+description: Propose a feature, an extension, or a change to the protocol.
+labels: ["kind/feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Changes to the **core message set** or to an accepted ADR need an ADR
+        (use the "Architecture Decision Record" template). Vendor features should be
+        proposed as an `x.<vendor>.` extension first.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user-visible or implementer-visible problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the change. Reference spec sections (e.g. `protocol.md §6.3`).
+    validations:
+      required: true
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Affected protocol layer
+      multiple: true
+      options:
+        - L0 Transport
+        - L1 Clock
+        - L2 Session
+        - L3 Timeline
+        - L4 Content
+        - Implementation only (no wire change)
+    validations:
+      required: true
+  - type: textarea
+    id: compat
+    attributes:
+      label: Compatibility
+      description: Is this wire-compatible? Can old peers ignore it? Does it need a version bump?
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
