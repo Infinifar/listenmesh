@@ -1,0 +1,15 @@
+# Build output
+/target/
+**/*.rs.bk
+
+# Editors / OS
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+
+# Proptest regressions are committed deliberately when they reproduce a bug;
+# scratch files are not.
+*.profraw
+*.profdata
