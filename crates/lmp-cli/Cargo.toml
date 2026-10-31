@@ -1,0 +1,23 @@
+[package]
+name = "lmp-cli"
+description = "ListenMesh Protocol (LMP) demo command-line tool (placeholder)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+readme = "README.md"
+publish = false
+
+[dependencies]
+
+[lints]
+workspace = true
+
+[[bin]]
+name = "lmp"
+path = "src/main.rs"

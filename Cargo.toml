@@ -1,0 +1,60 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/lmp-core",
+    "crates/lmp-server",
+    "crates/lmp-client",
+    "crates/lmp-conformance",
+    "crates/lmp-cli",
+]
+
+[workspace.package]
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.88"
+license = "MIT OR Apache-2.0"
+authors = ["Infinifar and the ListenMesh contributors"]
+repository = "https://github.com/Infinifar/listenmesh"
+homepage = "https://github.com/Infinifar/listenmesh"
+keywords = ["sync", "protocol", "audio", "clock", "listening"]
+categories = ["network-programming", "multimedia::audio"]
+
+[workspace.dependencies]
+# Internal crates.
+lmp-core = { path = "crates/lmp-core", version = "0.0.0" }
+lmp-server = { path = "crates/lmp-server", version = "0.0.0" }
+lmp-client = { path = "crates/lmp-client", version = "0.0.0" }
+lmp-conformance = { path = "crates/lmp-conformance", version = "0.0.0" }
+
+# Allowed external dependencies for M0 (see docs/stack.md). Do not add more
+# without updating docs/stack.md and opening an ADR if it is architectural.
+serde = { version = "1.0", default-features = false, features = ["derive", "alloc"] }
+postcard = { version = "1.1", default-features = false, features = ["alloc"] }
+thiserror = { version = "2.0", default-features = false }
+quanta = "0.13"
+
+# Dev-only.
+proptest = "1.12"
+approx = "0.5"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+missing_debug_implementations = "warn"
+rust_2018_idioms = { level = "warn", priority = -1 }
+unreachable_pub = "warn"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+unwrap_used = "deny"
+expect_used = "deny"
+dbg_macro = "deny"
+print_stdout = "warn"
+print_stderr = "warn"
+float_cmp = "warn"
+cast_possible_truncation = "warn"
+cast_sign_loss = "warn"
+cast_lossless = "warn"
+
+[profile.release]
+debug = 1

@@ -1,0 +1,9 @@
+# Keep in sync with `workspace.package.rust-version` in Cargo.toml.
+msrv = "1.88"
+
+# `unwrap_used` / `expect_used` are denied workspace-wide for library code
+# (see Cargo.toml). Tests may unwrap freely.
+allow-unwrap-in-tests = true
+allow-expect-in-tests = true
+allow-dbg-in-tests = false
+allow-print-in-tests = true
