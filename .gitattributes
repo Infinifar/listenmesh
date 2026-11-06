@@ -1,0 +1,2 @@
+# Golden vectors are byte-exact fixtures; never convert line endings.
+*.hex text eol=lf
