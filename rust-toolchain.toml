@@ -1,0 +1,6 @@
+# Pinned toolchain used for development and CI. The MSRV (see
+# `workspace.package.rust-version` in Cargo.toml) is checked separately in CI.
+[toolchain]
+channel = "1.99.1"
+components = ["rustfmt", "clippy"]
+profile = "minimal"
