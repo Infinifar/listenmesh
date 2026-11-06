@@ -21,3 +21,7 @@ The **protocol** is versioned separately via the envelope `ver` field; see
   `Snapshot`, …) with canonical postcard codec, strict decoding (version check,
   trailing bytes, extension-name validation), property-based round-trip tests and
   byte-exact golden vectors (`crates/lmp-core/tests/golden/v0.hex`).
+- `lmp-core`: `MonotonicClock` (quanta) and `ClockEstimator` — NTP four-timestamp
+  sampling, lowest-RTT-third filtering, centered least-squares regression for
+  offset and skew (ppm); deterministic synthetic-network tests asserting skew
+  error < 5 ppm.
