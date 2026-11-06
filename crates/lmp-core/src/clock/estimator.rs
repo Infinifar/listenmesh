@@ -170,9 +170,9 @@ impl Estimate {
 ///
 /// Keeps a sliding window of samples, retains the lowest-RTT third (the ones
 /// least disturbed by queuing delay), and fits `offset = a + b·t` by least
-/// squares. `b` is the frequency skew. The window MUST be [cleared](Self::clear)
-/// when the session epoch changes, because the room-clock origin may change
-/// (`docs/protocol.md` §4.1).
+/// squares. `b` is the frequency skew. The room clock is only guaranteed to be
+/// continuous within one connection, so the window MUST be
+/// [cleared](Self::clear) on every new connection (`docs/protocol.md` §4.1).
 ///
 /// Allocation happens only in [`ClockEstimator::new`].
 #[derive(Clone, Debug)]
@@ -257,7 +257,7 @@ impl ClockEstimator {
         self.window.is_empty()
     }
 
-    /// Drops all samples and the estimate (e.g. on epoch change).
+    /// Drops all samples and the estimate (required on every new connection).
     pub fn clear(&mut self) {
         self.window.clear();
         self.estimate = None;

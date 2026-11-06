@@ -10,9 +10,9 @@ use serde::{Deserialize, Serialize};
 /// A point on the **room clock**, in nanoseconds since an arbitrary,
 /// per-epoch origin chosen by the server.
 ///
-/// The room clock is the server's monotonic clock. Its origin is only
-/// meaningful within one [`Epoch`]: a server restart changes the origin and
-/// therefore MUST increment the epoch (`docs/protocol.md` §4.1).
+/// The room clock is the server's monotonic clock. It is only guaranteed to
+/// be continuous within one connection: a server restart or room migration
+/// may change its origin (`docs/protocol.md` §4.1).
 #[derive(
     Clone, Copy, Debug, Default, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize,
 )]
