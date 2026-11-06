@@ -17,3 +17,7 @@ The **protocol** is versioned separately via the envelope `ver` field; see
   `rustdoc -D warnings`, MSRV check.
 - Community files: contributing guide (incl. ADR process), code of conduct,
   security policy, issue and pull request templates.
+- `lmp-core`: core message set (`Envelope`, client/server messages, `Content`,
+  `Snapshot`, …) with canonical postcard codec, strict decoding (version check,
+  trailing bytes, extension-name validation), property-based round-trip tests and
+  byte-exact golden vectors (`crates/lmp-core/tests/golden/v0.hex`).
