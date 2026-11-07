@@ -14,6 +14,7 @@ readme = "README.md"
 publish = false
 
 [dependencies]
+lmp-core.workspace = true
 
 [lints]
 workspace = true
