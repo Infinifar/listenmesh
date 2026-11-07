@@ -247,10 +247,17 @@ version = "0.0.0"
 [[package]]
 name = "lmp-client"
 version = "0.0.0"
+dependencies = [
+ "lmp-core",
+ "thiserror",
+]
 
 [[package]]
 name = "lmp-conformance"
 version = "0.0.0"
+dependencies = [
+ "lmp-core",
+]
 
 [[package]]
 name = "lmp-core"
@@ -267,6 +274,10 @@ dependencies = [
 [[package]]
 name = "lmp-server"
 version = "0.0.0"
+dependencies = [
+ "lmp-core",
+ "thiserror",
+]
 
 [[package]]
 name = "memchr"
