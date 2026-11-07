@@ -8,11 +8,13 @@
 //!
 //! - [`message`]: the core message set and [`message::Envelope`].
 //! - [`codec`]: canonical postcard encoding with strict decoding.
+//! - [`clock`]: monotonic clock and room-clock offset/skew estimation.
 //! - [`time`]: monotonic time, position, epoch/revision and rate primitives.
 #![forbid(unsafe_code)]
 
 extern crate alloc;
 
+pub mod clock;
 pub mod codec;
 pub mod message;
 pub mod time;

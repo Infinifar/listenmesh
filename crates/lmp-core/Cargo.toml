@@ -17,9 +17,11 @@ publish = true
 serde.workspace = true
 postcard.workspace = true
 thiserror.workspace = true
+quanta.workspace = true
 
 [dev-dependencies]
 proptest.workspace = true
+approx.workspace = true
 
 [lints]
 workspace = true
